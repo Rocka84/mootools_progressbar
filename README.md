@@ -135,14 +135,14 @@ Set the current progress of the bar in percent
 For a good result, you can use, for example, the following HTML structure:
 
     #HTML
-    &lt;div class="progressbar"&gt;                          &lt;!-- Main container --&gt;
-        &lt;div class="progressbar_inner"&gt;                &lt;!-- The bar, this is resized --&gt;
-            &lt;div class="progressbar_label"&gt;&lt;/div&gt;      &lt;!-- The bottom label --&gt;
-            &lt;div class="progressbar_bg"&gt;               &lt;!-- The bar background, this is what you see growing --&gt;
-                &lt;div class="progressbar_label"&gt;&lt;/div&gt;  &lt;!-- The top label --&gt;
-            &lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
+    <div class="progressbar">                          <!-- Main container -->
+        <div class="progressbar_inner">                <!-- The bar, this is resized -->
+            <div class="progressbar_label"></div>      <!-- The bottom label -->
+            <div class="progressbar_bg">               <!-- The bar background, this is what you see growing -->
+                <div class="progressbar_label"></div>  <!-- The top label -->
+            </div>
+        </div>
+    </div>
 
 add some css:
 
