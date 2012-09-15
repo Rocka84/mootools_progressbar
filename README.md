@@ -6,7 +6,134 @@ A simple Class for progress bars.
 How to use
 ----------
 
-Use the following HTML structure:
+````js
+new MooProgressBar($('my_bar_container')); /* simple case */
+
+new MooProgressBar($('my_bar_container2'),{ /* simple upload progress */
+    range:654,
+    unit:'kB',
+    precision:2
+});
+
+/* Access the Instance via the element's storage */
+$('my_bar_container2').retrieve('MooProgressBar').setValue(25);
+
+````
+
+
+
+### Options
+
+- range - (*array*, defaults to [0,100]) range of the bar
+- start - (*integer*, defaults to 0)  initial value
+- unit - (*string*, defaults to '%')  unit of the values
+- precision - (*integer*, defaults to 0)  precision for presenting values
+- effect_duration - (*integer*, defaults to 200)  duration of the grow effect
+- tween_property - (*string*, defaults to 'width')  experimental
+- inner_class - (*string*, defaults to 'progressbar_inner')  the class to select the inner bar
+- label_class - (*string*, defaults to 'progressbar_label')  the class to select the label elements
+- getLabel - (*function*, see default below) function to format the text for the label
+
+The getLabel option defaults to:
+````js
+function(progress, value, unit, precision){
+    if (unit=='%'){
+        return progress.toFixed(parseInt(precision))+unit;
+    }else{
+        return value.toFixed(parseInt(precision))+unit;
+    }
+}
+````
+
+
+
+### Events
+
+#### onProgress
+
+Will fire when the progress property was changed
+
+*signature*:
+````js
+onProgress(progress,value,unit,precision)
+````
+
+#### onComplete
+
+Will fire when the progress reached 100%
+
+*signature*:
+````js
+onComplete(value,unit,precision)
+````
+
+
+
+
+### Methods
+
+#### setValue
+
+Set the current value of the bar
+
+*signature*:
+````js
+setValue(value,no_anim)
+````
+
+*Arguments*:
+- value - (*integer*) the new value
+- no_anim - (*boolean*, defaults to false) don't animate, just set the value
+
+#### getValue
+
+Get the current value of the bar
+
+*signature*:
+````js
+getValue()
+````
+
+#### setProgress
+
+Set the current progress of the bar in percent
+
+*signature*:
+````js
+setProgress(progress,no_anim)
+````
+
+*Arguments*:
+- progress - (*integer*) the new progress
+- no_anim - (*boolean*, defaults to false) don't animate, just set the progress
+
+
+#### getProgress
+Get the current value of the bar
+
+*signature*:
+````js
+getProgress()
+````
+
+#### setLabel
+
+Set the current progress of the bar in percent
+
+*signature*:
+````js
+setLabel(text)
+````
+
+*Arguments*:
+- text - (*string*) the new value for all labels
+
+
+
+
+### Default HTML & CSS
+
+For a good result, you can use, for example, the following HTML structure:
 ````html
 <div class="progressbar">                          <!-- Main container -->
     <div class="progressbar_inner">                <!-- The bar, this is resized -->
@@ -60,58 +187,4 @@ add some css:
 .progressbar_bg > .progressbar_label{
     color:white;
 }
-````
-
-and initalize the bars like this:
-````js
-new MooProgressBar($('bar1')); /* simple case */
-
-new MooProgressBar($('bar2'),{ /* simple upload progress */
-    range:654,
-    unit:'kB',
-    precision:2
-});
-````
-
-### Options
-
-- range - (*array*, defaults to [0,100]) range of the bar
-- start - (*integer*, defaults to 0)  initial value
-- unit - (*string*, defaults to '%')  unit of the values
-- precision - (*integer*, defaults to 0)  precision for presenting values
-- effect_duration - (*integer*, defaults to 200)  duration of the grow effect
-- tween_property - (*string*, defaults to 'width')  experimental
-- inner_class - (*string*, defaults to 'progressbar_inner')  the class to select the inner bar
-- label_class - (*string*, defaults to 'progressbar_label')  the class to select the label elements
-- getLabel - (*function*, see default below) function to format the text for the label
-
-The getLabel option defaults to:
-````js
-function(progress, value, unit, precision){
-    if (unit=='%'){
-        return progress.toFixed(parseInt(precision))+unit;
-    }else{
-        return value.toFixed(parseInt(precision))+unit;
-    }
-}
-````
-
-### Events:
-
-#### onProgress
-
-Will fire when the progress property was changed
-
-*signature*:
-````js
-onProgress(progress,value,unit,precision)
-````
-
-#### onComplete
-
-Will fire when the progress reached 100%
-
-*signature*:
-````js
-onComplete(value,unit,precision)
 ````
