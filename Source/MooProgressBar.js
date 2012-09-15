@@ -12,6 +12,7 @@ requires:
 
 provides: [MooProgressBar]
 
+...
 */
 (function(){
     var MooProgressBar=this.MooProgressBar=new Class({
