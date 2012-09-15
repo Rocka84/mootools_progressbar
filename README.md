@@ -7,6 +7,7 @@ How to use
 ----------
 
 Use the following HTML structure:
+```html
     &lt;div class="progressbar"&gt;                          &lt;!-- Main container --&gt;
         &lt;div class="progressbar_inner"&gt;                &lt;!-- The bar, this is resized --&gt;
             &lt;div class="progressbar_label"&gt;&lt;/div&gt;      &lt;!-- The bottom label --&gt;
@@ -15,10 +16,10 @@ Use the following HTML structure:
             &lt;/div&gt;
         &lt;/div&gt;
     &lt;/div&gt;
-
+```
 
 and initalize the bars like this:
-
+```js
     new MooProgressBar($('bar1')); /* simple case */
 
     /* See this Example for all options with their default values */
@@ -39,7 +40,7 @@ and initalize the bars like this:
             }
         }
     });
-
+```
 
 Events
 - progress: function(progress,value,unit,precision)
