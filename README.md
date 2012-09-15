@@ -1,5 +1,5 @@
 MooProgressBar
-===========
+==============
 
 A simple Class for progress bars.
 
@@ -7,7 +7,7 @@ How to use
 ----------
 
 Use the following HTML structure:
-```html
+    #HTML
     <div class="progressbar">                          <!-- Main container -->
         <div class="progressbar_inner">                <!-- The bar, this is resized -->
             <div class="progressbar_label"></div>      <!-- The bottom label -->
@@ -16,10 +16,9 @@ Use the following HTML structure:
             </div>
         </div>
     </div>
-```
 
 add some css:
-```css
+    #CSS
     .progressbar{
         width:160px;
         height:24px;
@@ -60,34 +59,52 @@ add some css:
     .progressbar_bg > .progressbar_label{
         color:white;
     }
-```
 
 and initalize the bars like this:
-```js
+    #JS
     new MooProgressBar($('bar1')); /* simple case */
 
-    /* See this Example for all options with their default values */
-    new MooProgressBar($('bar2'),{
-        range:[0,100],          // range of the bar
-        start:0,                // initial value
-        unit:'%',               // unit of the values
-        precision:0,            // precision for presenting values
-        effect_duration:200,    // duration of the grow effect
-        tween_property:'width', // experimental
-        inner_class:'progressbar_inner', // the class to select the inner bar
-        label_class:'progressbar_label', // the class to select the label elements
-        
-        // function to format the text for the label
-        getLabel:function(progress, value, unit, precision){
-            if (unit=='%'){
-                return progress.toFixed(parseInt(precision))+unit;
-            }else{
-                return value.toFixed(parseInt(precision))+unit;
-            }
-        }
+    new MooProgressBar($('bar2'),{ /* simple upload progress */
+        range:654,
+        unit:'kB',
+        precision:2
     });
-```
 
-Events
-- progress: function(progress,value,unit,precision)
-- complete: function(value,unit,precision)
+### Options
+
+- range - (*array*, defaults to [0,100]) range of the bar
+- start - (*integer*, defaults to 0)  initial value
+- unit - (*string*, defaults to '%')  unit of the values
+- precision - (*integer*, defaults to 0)  precision for presenting values
+- effect_duration - (*integer*, defaults to 200)  duration of the grow effect
+- tween_property - (*string*, defaults to 'width')  experimental
+- inner_class - (*string*, defaults to 'progressbar_inner')  the class to select the inner bar
+- label_class - (*string*, defaults to 'progressbar_label')  the class to select the label elements
+- getLabel - (*function*, see default below) function to format the text for the label
+
+The getLabel option defaults to:
+    #JS
+    function(progress, value, unit, precision){
+        if (unit=='%'){
+            return progress.toFixed(parseInt(precision))+unit;
+        }else{
+            return value.toFixed(parseInt(precision))+unit;
+        }
+    }
+
+### Events:
+
+- onProgress: Will fire when the user has selected a date
+
+#### signature
+
+	#JS
+	onProgress(progress,value,unit,precision)
+
+
+- onComplete: Will fire when the user has selected a date
+
+#### signature
+
+	#JS
+	onComplete(value,unit,precision)
