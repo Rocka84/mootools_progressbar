@@ -52,6 +52,7 @@ The getLabel option defaults to:
 Will fire when the progress property was changed
 
 *signature*:
+
     #JS
     onProgress(progress,value,unit,precision)
 
@@ -61,6 +62,7 @@ Will fire when the progress property was changed
 Will fire when the progress reached 100%
 
 *signature*:
+
     #JS
     onComplete(value,unit,precision)
 
@@ -74,6 +76,7 @@ Will fire when the progress reached 100%
 Set the current value of the bar
 
 *signature*:
+
     #JS
     setValue(value,no_anim)
 
@@ -86,6 +89,7 @@ Set the current value of the bar
 Get the current value of the bar
 
 *signature*:
+
     #JS
     getValue()
 
@@ -94,6 +98,7 @@ Get the current value of the bar
 Set the current progress of the bar in percent
 
 *signature*:
+
     #JS
     setProgress(progress,no_anim)
 
@@ -106,6 +111,7 @@ Set the current progress of the bar in percent
 Get the current value of the bar
 
 *signature*:
+
     #JS
     getProgress()
 
@@ -114,6 +120,7 @@ Get the current value of the bar
 Set the current progress of the bar in percent
 
 *signature*:
+
     #JS
     setLabel(text)
 
@@ -126,17 +133,19 @@ Set the current progress of the bar in percent
 ### Default HTML & CSS
 
 For a good result, you can use, for example, the following HTML structure:
+
     #HTML
-    <div class="progressbar">                          <!-- Main container -->
-        <div class="progressbar_inner">                <!-- The bar, this is resized -->
-            <div class="progressbar_label"></div>      <!-- The bottom label -->
-            <div class="progressbar_bg">               <!-- The bar background, this is what you see growing -->
-                <div class="progressbar_label"></div>  <!-- The top label -->
-            </div>
-        </div>
-    </div>
+    &lt;div class="progressbar"&gt;                          &lt;!-- Main container --&gt;
+        &lt;div class="progressbar_inner"&gt;                &lt;!-- The bar, this is resized --&gt;
+            &lt;div class="progressbar_label"&gt;&lt;/div&gt;      &lt;!-- The bottom label --&gt;
+            &lt;div class="progressbar_bg"&gt;               &lt;!-- The bar background, this is what you see growing --&gt;
+                &lt;div class="progressbar_label"&gt;&lt;/div&gt;  &lt;!-- The top label --&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
 
 add some css:
+
     #CSS
     .progressbar{
         width:160px;
