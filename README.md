@@ -34,6 +34,7 @@ How to use
 - getLabel - (*function*, see default below) function to format the text for the label
 
 The getLabel option defaults to:
+
     #JS
     function(progress, value, unit, precision){
         if (unit=='%'){
