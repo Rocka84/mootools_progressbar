@@ -82,6 +82,7 @@ Set the current value of the bar
     setValue(value,no_anim)
 
 *Arguments*:
+
 - value - (*integer*) the new value
 - no_anim - (*boolean*, defaults to false) don't animate, just set the value
 
@@ -104,6 +105,7 @@ Set the current progress of the bar in percent
     setProgress(progress,no_anim)
 
 *Arguments*:
+
 - progress - (*integer*) the new progress
 - no_anim - (*boolean*, defaults to false) don't animate, just set the progress
 
@@ -126,6 +128,7 @@ Set the current progress of the bar in percent
     setLabel(text)
 
 *Arguments*:
+
 - text - (*string*) the new value for all labels
 
 
