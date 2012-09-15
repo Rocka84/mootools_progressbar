@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>ProgressBar Demo</title>
+        <title>MooProgressBar Demo</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/mootools/1.4.5/mootools-yui-compressed.js"></script>
-        <script type="text/javascript" src="Source/ProgressBar.js"></script>
+        <script type="text/javascript" src="Source/MooProgressBar.js"></script>
         <script type="text/javascript">
             /*
              * Initialize the Bars
              */
             
             window.addEvent('domready',function(){
-                new ProgressBar($('bar1'));
+                new MooProgressBar($('bar1'));
                 
-                new ProgressBar($('bar2'),{
+                new MooProgressBar($('bar2'),{
                     range:1382,
                     unit:'KB',
                     start:306.8,
@@ -25,7 +25,7 @@
                     }
                 });
                 
-                new ProgressBar($('bar3'),{
+                new MooProgressBar($('bar3'),{
                     range:[200,100],
                     unit:'',
                     precision:2,
@@ -35,21 +35,21 @@
                 });
                 $('progress_input2').addEvent('keydown',function(ev){
                     if (ev && ev.key=='enter'){
-                        $('bar2').retrieve('ProgressBar').setProgress(ev.target.value);
+                        $('bar2').retrieve('MooProgressBar').setProgress(ev.target.value);
                     }
                 });
                 $('value_input2').addEvent('keydown',function(ev){
                     if (ev && ev.key=='enter'){
-                        $('bar2').retrieve('ProgressBar').setValue(ev.target.value);
+                        $('bar2').retrieve('MooProgressBar').setValue(ev.target.value);
                     }
                 });
                 
-                new ProgressBar($('bar4'),{
+                new MooProgressBar($('bar4'),{
                     getLabel:function(){return 'Please wait...'},
                     onComplete:function(){this.setLabel('Finished!')}
                 });
                 
-                new ProgressBar($('bar5'),{
+                new MooProgressBar($('bar5'),{
                     range:[73,0],
                     effect_duration:1500,
                     getLabel:function(progress,value){
@@ -58,7 +58,7 @@
                     }
                 });
                 
-                $$('.progressbar').each(function(elem){elem.retrieve('ProgressBar').addEvent('complete',function(value){
+                $$('.progressbar').each(function(elem){elem.retrieve('MooProgressBar').addEvent('complete',function(value){
                         window.clearTimeout(timer[elem.id]);
                         timer[elem.id]=null;
                         console.log(elem.id+' finished',value);
@@ -78,7 +78,7 @@
                     window.clearTimeout(timer['bar'+bar_nr]);
                     timer['bar'+bar_nr]=null;
                 }else{
-                    var bar=$('bar'+bar_nr).retrieve('ProgressBar');
+                    var bar=$('bar'+bar_nr).retrieve('MooProgressBar');
                     timer['bar'+bar_nr]=(function(){
                         bar.setProgress(bar.getProgress()+(Math.random()*10 ));
                     }).periodical(750);
@@ -89,17 +89,17 @@
                     window.clearTimeout(timer['bar5']);
                     timer['bar5']=null;
                 }else{
-                    var bar=$('bar5').retrieve('ProgressBar');
+                    var bar=$('bar5').retrieve('MooProgressBar');
                     timer['bar5']=(function(){
                         bar.setValue(bar.getValue()-1);
                     }).periodical(1000);
                 }
             }
             function setBarProgress(nr,value){
-                $('bar'+nr).retrieve('ProgressBar').setProgress(value);
+                $('bar'+nr).retrieve('MooProgressBar').setProgress(value);
             }
             function setBarValue(nr,value){
-                $('bar'+nr).retrieve('ProgressBar').setValue(value);
+                $('bar'+nr).retrieve('MooProgressBar').setValue(value);
             }
             
 
@@ -212,7 +212,7 @@
         </style>
     </head>
     <body>
-        <h1>ProgressBar Demo</h1>
+        <h1>MooProgressBar Demo</h1>
         <pre>
 &lt;div class=&quot;progressbar&quot;;&gt;                         &lt;!-- Main container --&gt;
     &lt;div class=&quot;progressbar_inner&quot;&gt;                &lt;!-- The bar, this is resized --&gt;

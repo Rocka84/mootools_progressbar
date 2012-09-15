@@ -17,30 +17,32 @@ provides: [MooProgressBar]
     var MooProgressBar=this.MooProgressBar=new Class({
         Implements:[Options,Events], //,Class.Occlude],
         element:null,
-        property:'ProgressBar',
+        property:'MooProgressBar',
         
         options:{
             range:[0,100],
             start:0,
             unit:'%',
             precision:0,
+            effect_duration:200,
+            tween_property:'width',
+            inner_class:'progressbar_inner',
+            label_class:'progressbar_label',
             getLabel:function(progress, value, unit, precision){
                 if (unit=='%'){
                     return progress.toFixed(parseInt(precision))+unit;
                 }else{
                     return value.toFixed(parseInt(precision))+unit;
                 }
-            },
-            effect_duration:200,
-            tween_property:'width'
+            }
         },
         
         initialize:function(element,options){
             this.element=$(element);
             //if (this.occlude()) return this.occluded();
             this.setOptions(options);
-            this.inner=this.element.getElement('.progressbar_inner');
-            this.labels=this.element.getElements('.progressbar_label');
+            this.inner=this.element.getElement('.'+this.options.inner_class);
+            this.labels=this.element.getElements('.'+this.options.label_class);
             
             this.inner.set('tween',{
                 unit:'%',
