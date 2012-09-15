@@ -3,6 +3,8 @@ MooProgressBar
 
 A simple Class for progress bars.
 
+![Screenshot](http://fabian.dillmeier.de/demos/MooProgressBar/screenshot.png)
+
 How to use
 ----------
 
